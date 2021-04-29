@@ -4,25 +4,20 @@ public class AddDigits {
     public int addDigits(String input) {
 
         int result = -1;
-
-        if (input != null) {
-
-            input = input.replaceAll("[^0-9]", "");
-            input.trim();
-
-            if (input.length() > 0) {
-                result = 0;
-                char[] charArray;
-                charArray = input.toCharArray();
-                for (int i = 0; i < charArray.length; i++){
-                    result = result + charArray[i];
+        if (input.equals("") || input.equals(null)) {
+            return -1;
+        }else {
+            result = 0;
+            for (int i = 0; i < input.length(); i++) {
+                char c = input.charAt(i);
+                if (Character.isDigit(c)) {
+                    int digit = Integer.parseInt(String.valueOf(c));
+                    result = result + digit;
                 }
+
             }
         }
         return result;
-
     }
-
-
-    //todo: implement your solution here
 }
+
